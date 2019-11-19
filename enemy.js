@@ -3,8 +3,8 @@ class Enemy {
         this.size = 150;
         this.x = width;
         this.y = height - this.size - 30;
-        this.img = createImg('assets/enemy.gif');
-        this.img.size(this.size, this.size);
+        this.image = createImg('assets/enemy.gif');
+        this.image.size(this.size, this.size);
     }
   
     move() {
@@ -12,6 +12,6 @@ class Enemy {
     }
   
     show() {
-        this.img.position(this.x, this.y);
+        this.image.position(this.x, this.y);
     }
   }

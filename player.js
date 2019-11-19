@@ -1,11 +1,40 @@
 class Player {
     constructor() {
-      this.size = 125;
-      this.x = 50;
-      this.y = this.getFloorPos();
-      this.vy = 0;
-      this.gravity = 2;
-      this.img = loadImage('assets/player.png');
+        this.size = 125;
+        this.x = 50;
+        this.y = this.getFloorPos();
+        this.vy = 0;
+        this.gravity = 2;
+        this.image = this.getImage();
+    }
+
+    getImage() {
+        var imageName;
+        var imageIndex = this.getRandomInteger(1, 5);
+        
+        switch(imageIndex) {
+            case 1:
+                imageName = "player.png";
+                break;
+            case 2:
+                imageName = "player2.gif";
+                break;
+            case 3:
+                imageName = "player3.gif";
+                break;
+            case 4:
+                imageName = "player4.gif";
+                break;
+        }
+
+        var image = createImg('assets/' + imageName);
+        image.size(this.size, this.size);
+        
+        return image;
+    }
+
+    getRandomInteger(min, max) {
+        return Math.floor(Math.random() * (max - min) ) + min;
     }
 
     getFloorPos() {
@@ -26,12 +55,12 @@ class Player {
     }
   
     move() {
-      this.y += this.vy;
-      this.vy += this.gravity;
-      this.y = constrain(this.y, 0, this.getFloorPos());
+        this.y += this.vy;
+        this.vy += this.gravity;
+        this.y = constrain(this.y, 0, this.getFloorPos());
     }
   
     show() {
-      image(this.img, this.x, this.y, this.size, this.size);
+        this.image.position(this.x, this.y);
     }
   }
