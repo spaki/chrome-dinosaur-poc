@@ -1,3 +1,3 @@
-# chrome-dinosaur-poc
+# Chrome Dinosaur POC
 A POC of the google chrome dinosaur offline game
-[assets\demo.gif]
+[doc\demo.gif]
